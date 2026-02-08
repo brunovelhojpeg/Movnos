@@ -1,0 +1,360 @@
+MOVNOS Critical Scan
+Project: /Users/brunoazevedo/Desktop/movnos
+Date: Sun Feb  8 17:21:44 -03 2026
+--------------------------------------------------
+
+==================================================
+## Flutter clean
+==================================================
+Cleaning Xcode workspace...                                      1.626ms
+Cleaning Xcode workspace...                                      2.206ms
+Deleting build...                                                    3ms
+Deleting .dart_tool...                                               1ms
+Deleting ephemeral...                                                0ms
+Deleting Generated.xcconfig...                                       0ms
+Deleting flutter_export_environment.sh...                            0ms
+Deleting ephemeral...                                                0ms
+Deleting ephemeral...                                                0ms
+Deleting ephemeral...                                                0ms
+Deleting .flutter-plugins-dependencies...                            0ms
+
+(exit code: 0)
+
+==================================================
+## Flutter pub get
+==================================================
+Resolving dependencies...
+Downloading packages...
+  app_links 6.4.1 (7.0.0 available)
+  characters 1.4.0 (1.4.1 available)
+  fl_chart 0.66.2 (1.1.1 available)
+  flutter_map 6.2.1 (8.2.2 available)
+  flutter_map_cancellable_tile_provider 2.0.0 (discontinued replaced by flutter_map)
+  flutter_riverpod 2.6.1 (3.2.1 available)
+  geolocator 12.0.0 (14.0.2 available)
+  geolocator_android 4.6.2 (5.0.2 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.1 available)
+  mgrs_dart 2.0.0 (3.0.0 available)
+  permission_handler 11.4.0 (12.0.1 available)
+  permission_handler_android 12.1.0 (13.0.1 available)
+  proj4dart 2.1.0 (3.0.0 available)
+  riverpod 2.6.1 (3.2.1 available)
+  test_api 0.7.7 (0.7.9 available)
+  unicode 0.3.1 (1.1.9 available)
+Got dependencies!
+1 package is discontinued.
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+
+(exit code: 0)
+
+==================================================
+## Flutter gen-l10n
+==================================================
+Because l10n.yaml exists, the options defined there will be used instead.
+To use the command line arguments, delete the l10n.yaml file in the Flutter project.
+
+
+
+(exit code: 0)
+
+==================================================
+## Flutter analyze (static checks)
+==================================================
+Analyzing movnos...                                             
+
+warning • Unused import: 'routing/app_router.dart' • lib/src/app.dart:8:8 • unused_import
+warning • Unused import: 'routing/app_routes.dart' • lib/src/app.dart:9:8 • unused_import
+   info • The file name 'profile_service 2.dart' isn't a lower_case_with_underscores identifier • lib/src/features/auth/profile_service 2.dart:1:1 • file_names
+   info • Unnecessary use of multiple underscores • lib/src/features/home/home_page.dart:55:37 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/src/features/record/map_record_page.dart:103:35 • unnecessary_underscores
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/src/features/record/map_record_page.dart:427:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/src/features/record/map_record_page.dart:501:31 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/src/features/record/map_record_page.dart:585:31 • deprecated_member_use
+warning • The declaration '_signOut' isn't referenced • lib/src/features/settings/settings_page.dart:34:16 • unused_element
+  error • The method 'errorSavingCheckin' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:53:47 • undefined_method
+  error • The getter 'fieldRequired' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:60:60 • undefined_getter
+  error • The getter 'fieldNumberInvalid' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:63:40 • undefined_getter
+  error • The getter 'fieldValueInvalid' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:64:37 • undefined_getter
+  error • The getter 'addCheckinTitle' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:71:47 • undefined_getter
+  error • The getter 'weightKgLabel' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:82:61 • undefined_getter
+  error • The getter 'waistCmLabel' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:90:61 • undefined_getter
+  error • The getter 'hipCmLabel' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:98:61 • undefined_getter
+  error • The getter 'save' isn't defined for the type 'AppLocalizations' • lib/src/features/you/checkin_add_page.dart:107:73 • undefined_getter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/src/features/you/you_page.dart:455:51 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/src/features/you/you_page.dart:472:54 • deprecated_member_use
+
+20 issues found. (ran in 1.5s)
+
+(exit code: 1)
+
+==================================================
+## Build Web (release) — compile-only check
+==================================================
+Compiling lib/main.dart for the Web...                          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 11072 bytes (99.3% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib/main.dart for the Web...                             25,6s
+✓ Built build/web
+
+(exit code: 0)
+
+==================================================
+## Build iOS (no codesign) — compile-only check
+==================================================
+Warning: Building for device with codesigning disabled. You will have to manually codesign before deploying to device.
+Building com.example.movnos for device (ios-release)...
+Running pod install...                                             751ms
+Running Xcode build...                                          
+Xcode build done.                                           18,4s
+Failed to build iOS app
+════════════════════════════════════════════════════════════════════════════════
+Building a deployable iOS app requires a selected Development Team with a 
+Provisioning Profile. Please ensure that a Development Team is selected by:
+  1- Open the Flutter project's Xcode target with
+       open ios/Runner.xcworkspace
+  2- Select the 'Runner' project in the navigator then the 'Runner' target
+     in the project settings
+  3- Make sure a 'Development Team' is selected under Signing & Capabilities > Team. 
+     You may need to:
+         - Log in with your Apple ID in Xcode first
+         - Ensure you have a valid unique Bundle ID
+         - Register your device with your Apple Developer Account
+         - Let Xcode automatically provision a profile for your app
+  4- Build or run your project again
+
+For more information, please visit:
+  https://flutter.dev/to/ios-development-team
+
+Or run on an iOS simulator without code signing
+════════════════════════════════════════════════════════════════════════════════
+Encountered error while building for device.
+
+(exit code: 1)
+
+==================================================
+## Pub outdated — dependency drift / incompatibilities
+==================================================
+Showing outdated packages.
+[*] indicates versions that are not the latest available.
+
+Package Name                           Current   Upgradable  Resolvable  Latest   
+
+direct dependencies:                  
+fl_chart                               *0.66.2   *0.66.2     1.1.1       1.1.1    
+flutter_map                            *6.2.1    *6.2.1      8.2.2       8.2.2    
+flutter_map_cancellable_tile_provider  *2.0.0    *2.0.0      3.1.1       3.1.1    (discontinued)  
+flutter_riverpod                       *2.6.1    *2.6.1      3.2.1       3.2.1    
+geolocator                             *12.0.0   *12.0.0     14.0.2      14.0.2   
+permission_handler                     *11.4.0   *11.4.0     12.0.1      12.0.1   
+
+dev_dependencies: all up-to-date.     
+
+transitive dependencies:              
+_fe_analyzer_shared                    -         -           *91.0.0     94.0.0   
+analyzer                               -         -           *8.4.1      10.0.2   
+app_links                              *6.4.1    *6.4.1      *6.4.1      7.0.0    
+characters                             *1.4.0    *1.4.0      *1.4.0      1.4.1    
+cli_config                             -         -           0.2.0       0.2.0    
+coverage                               -         -           1.15.0      1.15.0   
+dart_earcut                            -         -           1.2.0       1.2.0    
+dart_polylabel2                        -         -           1.0.0       1.0.0    
+dbus                                   -         -           0.7.12      0.7.12   
+frontend_server_client                 -         -           4.0.0       4.0.0    
+geoclue                                -         -           0.1.1       0.1.1    
+geolocator_android                     *4.6.2    *4.6.2      5.0.2       5.0.2    
+geolocator_linux                       -         -           0.2.4       0.2.4    
+gsettings                              -         -           0.2.8       0.2.8    
+http_multi_server                      -         -           3.2.2       3.2.2    
+io                                     -         -           1.0.5       1.0.5    
+js                                     -         -           0.7.2       0.7.2    
+matcher                                *0.12.17  *0.12.17    *0.12.17    0.12.18  
+material_color_utilities               *0.11.1   *0.11.1     *0.11.1     0.13.0   
+meta                                   *1.17.0   *1.17.0     *1.17.0     1.18.1   
+mgrs_dart                              *2.0.0    *2.0.0      *2.0.0      3.0.0    
+node_preamble                          -         -           2.0.2       2.0.2    
+package_config                         -         -           2.2.0       2.2.0    
+package_info_plus                      -         -           9.0.0       9.0.0    
+package_info_plus_platform_interface   -         -           3.2.1       3.2.1    
+permission_handler_android             *12.1.0   *12.1.0     13.0.1      13.0.1   
+pool                                   -         -           1.5.2       1.5.2    
+proj4dart                              *2.1.0    *2.1.0      *2.1.0      3.0.0    
+riverpod                               *2.6.1    *2.6.1      3.2.1       3.2.1    
+shelf                                  -         -           1.4.2       1.4.2    
+shelf_packages_handler                 -         -           3.0.2       3.0.2    
+shelf_static                           -         -           1.1.3       1.1.3    
+shelf_web_socket                       -         -           3.0.0       3.0.0    
+source_map_stack_trace                 -         -           2.1.2       2.1.2    
+source_maps                            -         -           0.10.13     0.10.13  
+test                                   -         -           *1.26.3     1.29.0   
+test_api                               *0.7.7    *0.7.7      *0.7.7      0.7.9    
+test_core                              -         -           *0.6.12     0.6.15   
+unicode                                *0.3.1    *0.3.1      *0.3.1      1.1.9    
+watcher                                -         -           1.2.1       1.2.1    
+webkit_inspection_protocol             -         -           1.2.1       1.2.1    
+win32                                  -         -           5.15.0      5.15.0   
+
+9  dependencies are constrained to versions that are older than a resolvable version.
+To update these dependencies, edit pubspec.yaml, or run `flutter pub upgrade --major-versions`.
+
+flutter_map_cancellable_tile_provider
+    Package flutter_map_cancellable_tile_provider has been discontinued, replaced by flutter_map. See https://dart.dev/go/package-discontinue
+
+(exit code: 0)
+
+==================================================
+## Grep scan — common breakpoints
+==================================================
+
+==================================================
+## Search deprecated web renderer flags
+==================================================
+grep: unrecognized option `--web-renderer\|web-renderer'
+usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]]
+	[-e pattern] [-f file] [--binary-files=value] [--color=when]
+	[--context[=num]] [--directories=action] [--label] [--line-buffered]
+	[--null] [pattern] [file ...]
+
+(exit code: 0)
+
+==================================================
+## Search old flutter_gen gen_l10n import
+==================================================
+
+(exit code: 0)
+
+==================================================
+## List all context.l10n.<key> usages (top 200)
+==================================================
+context.l10n.accountHeader
+context.l10n.activitiesListTodo
+context.l10n.activitiesTab
+context.l10n.addCheckinTitle
+context.l10n.appBarGroups
+context.l10n.appBarHome
+context.l10n.appBarMaps
+context.l10n.appBarRecord
+context.l10n.appBarYou
+context.l10n.appTitle
+context.l10n.appearance
+context.l10n.autoplayVideo
+context.l10n.beacon
+context.l10n.bodyMetricsCard
+context.l10n.changeEmail
+context.l10n.checkInToday
+context.l10n.checkedInToday
+context.l10n.connectDevice
+context.l10n.connectDeviceSubtitle
+context.l10n.contacts
+context.l10n.dailyCheckIn
+context.l10n.defaultHighlightMedia
+context.l10n.defaultHighlightMediaSubtitle
+context.l10n.defaultMaps
+context.l10n.distance
+context.l10n.easyRunSubtitle
+context.l10n.easyRunTitle
+context.l10n.elevationGain
+context.l10n.emailLabel
+context.l10n.emailNotifications
+context.l10n.emailPasswordRequired
+context.l10n.errorSavingCheckin
+context.l10n.feedOrder
+context.l10n.feedOrderSubtitle
+context.l10n.fieldNumberInvalid
+context.l10n.fieldRequired
+context.l10n.fieldValueInvalid
+context.l10n.fillWeightHeight
+context.l10n.giftSubscription
+context.l10n.healthData
+context.l10n.heightCm
+context.l10n.help
+context.l10n.hipCmLabel
+context.l10n.loginTitle
+context.l10n.manageDevices
+context.l10n.managePlan
+context.l10n.newBadge
+context.l10n.partnerIntegrations
+context.l10n.passwordLabel
+context.l10n.placeholderPage
+context.l10n.preferencesHeader
+context.l10n.privacyControls
+context.l10n.progressTab
+context.l10n.promoSubtitle
+context.l10n.promoTitle
+context.l10n.pushNotifications
+context.l10n.restorePurchases
+context.l10n.run
+context.l10n.save
+context.l10n.saved
+context.l10n.saving
+context.l10n.seeAll
+context.l10n.settingsLanding
+context.l10n.settingsTitle
+context.l10n.share
+context.l10n.signIn
+context.l10n.signOut
+context.l10n.signOutError
+context.l10n.signedInAs
+context.l10n.siriShortcuts
+context.l10n.temperature
+context.l10n.temperatureCelsius
+context.l10n.thisWeek
+context.l10n.time
+context.l10n.todoCreateFlow
+context.l10n.trainingSelection
+context.l10n.trainingStatsCard
+context.l10n.trainingZones
+context.l10n.trainingZonesSubtitle
+context.l10n.unexpectedError
+context.l10n.units
+context.l10n.unitsKilometers
+context.l10n.waistCmLabel
+context.l10n.walk
+context.l10n.weather
+context.l10n.weightKg
+context.l10n.weightKgLabel
+context.l10n.xp
+context.l10n.xpTodayEarned
+context.l10n.youTitle
+context.l10n.yourSubscription
+
+(exit code: 0)
+
+==================================================
+## Search for pushNamed in tap handlers (possible double navigation)
+==================================================
+lib/src/core/nav/nav_helpers.dart:13:  Future<T?> pushReplacementSafe<T, TO>(Route<T> route) {
+lib/src/core/nav/nav_helpers.dart:14:    return Navigator.of(this).pushReplacement<T, TO>(route);
+lib/src/app/navigation/safe_navigator.dart:17:      await Navigator.of(context).pushReplacementNamed(routeName,
+lib/src/features/you/you_page.dart:183:            onPressed: () => Navigator.of(context).pushNamed(AppRoutes.settings),
+lib/src/features/onboarding/onboarding_height_page.dart:36:        Navigator.of(context).pushAndRemoveUntil(
+
+(exit code: 0)
+
+==================================================
+## Search for null-assertion operator (!) in app code
+==================================================
+grep: parentheses not balanced
+
+(exit code: 0)
+
+==================================================
+## Search TODO/FIXME
+==================================================
+
+(exit code: 0)
+
+==================================================
+## What to look at next (manual quick check)
+==================================================
+- Any 'ERROR' lines above in analyze/build steps are critical.
+- If build web passes but iOS fails: focus CocoaPods/Info.plist entitlements.
+- If analyze passes but runtime loops: look at navigation grep section.
+- If lots of '!' results: potential runtime crashes when data is null.
+- If pub outdated shows many incompatible updates: freeze or plan upgrades in batches.
+
+DONE ✅  Report saved to: critical_scan_report.txt
