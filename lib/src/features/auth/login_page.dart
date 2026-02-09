@@ -67,11 +67,12 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  context.l10n.appTitle,
-                  textAlign: TextAlign.center,
-                  style:
-                      const TextStyle(fontSize: 36, fontWeight: FontWeight.w800),
+                Center(
+                  child: Image.asset(
+                    'assets/branding/extenso-preto.png',
+                    width: 180,
+                    fit: BoxFit.contain,
+                  ),
                 ),
                 const SizedBox(height: 24),
                 TextField(
