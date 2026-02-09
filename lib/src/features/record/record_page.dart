@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/l10n/l10n.dart';
 import '../../core/timer/workout_timer_provider.dart';
+import '../recording/controller/workout_recorder_scope.dart';
+import '../recording/ui/workout_summary_page.dart';
 import 'map_record_page.dart';
 import 'record_service.dart';
 
@@ -61,7 +63,7 @@ class _RecordPageState extends ConsumerState<RecordPage>
     }
   }
 
-  void _start() {
+  Future<void> _start() async {
     if (_selectedType == null) {
       _toast('Selecione um tipo de treino primeiro.');
       return;
@@ -69,61 +71,41 @@ class _RecordPageState extends ConsumerState<RecordPage>
     _startedAtUtc ??= DateTime.now().toUtc();
     ref.read(workoutTimerProvider).start(this);
     ref.read(locationTrackerProvider).start();
+    await WorkoutRecorderScope.of(context).start();
     setState(() {});
   }
 
   void _pause() {
     ref.read(workoutTimerProvider).pause();
     ref.read(locationTrackerProvider).stop();
+    WorkoutRecorderScope.of(context).pause();
     setState(() {});
   }
 
   void _reset() {
     ref.read(workoutTimerProvider).reset();
     ref.read(locationTrackerProvider).reset();
+    WorkoutRecorderScope.of(context).reset();
     _startedAtUtc = null;
     setState(() {});
   }
 
   Future<void> _stopAndSave() async {
     if (_saving) return;
-    if (_selectedType == null) {
-      _toast('Selecione um tipo de treino primeiro.');
-      return;
-    }
-    if (_startedAtUtc == null) {
-      _toast('Inicie o cronômetro primeiro.');
-      return;
-    }
-
-    ref.read(workoutTimerProvider).pause();
-    ref.read(locationTrackerProvider).stop();
-
-    final durationSeconds =
-        ref.read(workoutTimerProvider).elapsed.inSeconds;
-    if (durationSeconds <= 0) {
-      _toast('A duração precisa ter pelo menos 1 segundo.');
-      return;
-    }
-
-    final endedAtUtc = DateTime.now().toUtc();
-    final startedAtUtc = _startedAtUtc!;
-
     setState(() => _saving = true);
+    final recorder = WorkoutRecorderScope.of(context);
     try {
-      final activityId = await _service.createActivity(
-        activityTypeId: _selectedType!.id,
-        startedAtUtc: startedAtUtc,
-        endedAtUtc: endedAtUtc,
-        durationSeconds: durationSeconds,
+      final session = await recorder.stopAndBuildSession();
+      if (!mounted) return;
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => WorkoutSummaryPage(session: session),
+        ),
       );
-
-      await _service.recordActivityComplete(activityId: activityId);
-
-      _toast('Salvo! XP e sequência atualizados.');
+      recorder.reset();
       _reset();
-    } catch (_) {
-      _toast('Falha ao salvar o treino.');
+    } catch (e) {
+      _toast('Erro ao finalizar: $e');
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -157,6 +139,7 @@ class _RecordPageState extends ConsumerState<RecordPage>
 
     final timer = ref.watch(workoutTimerProvider);
     final gps = ref.watch(locationTrackerProvider);
+    final recorder = WorkoutRecorderScope.of(context);
 
     return Center(
       child: ConstrainedBox(

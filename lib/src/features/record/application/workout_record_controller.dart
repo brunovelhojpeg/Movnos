@@ -17,6 +17,9 @@ class WorkoutRecordController extends ChangeNotifier {
   bool _busy = false;
   bool get busy => _busy;
 
+  /// Called by UI layer after timer ticks.
+  void onTimerTick(Duration elapsed) => setElapsed(elapsed);
+
   /// Called by timer ticks to keep elapsed time in sync.
   void setElapsed(Duration elapsed) {
     if (_session.status == WorkoutStatus.recording ||

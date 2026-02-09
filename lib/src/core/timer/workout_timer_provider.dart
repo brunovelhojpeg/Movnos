@@ -8,3 +8,5 @@ export 'workout_timer_notifier.dart';
 export 'workout_timer_provider_riverpod.dart';
 export '../location/location_tracker_notifier.dart';
 export '../location/location_tracker_provider_riverpod.dart';
+export '../../features/record/metrics/workout_metrics_notifier.dart';
+export '../../features/record/metrics/workout_metrics_provider_riverpod.dart';

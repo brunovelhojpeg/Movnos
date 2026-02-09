@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 
-/// Global-ish ticker-backed timer that notifies listeners every tick.
+/// Timer notifier that survives tab switches and follows recording state.
 class WorkoutTimerNotifier extends ChangeNotifier {
   final Stopwatch _stopwatch = Stopwatch();
   Ticker? _ticker;
@@ -11,28 +11,36 @@ class WorkoutTimerNotifier extends ChangeNotifier {
 
   bool get isRunning => _stopwatch.isRunning;
 
-  void start(TickerProvider vsync) {
-    if (_ticker == null) {
-      _stopwatch.start();
-      _ticker = vsync.createTicker((_) {
+  /// Call once from a widget that has a [TickerProvider] (e.g., RecordPage).
+  void attach(TickerProvider vsync) {
+    // Only create ticker once; survives tab switches.
+    _ticker ??= vsync.createTicker((_) {
+      if (_stopwatch.isRunning) {
         _elapsed = _stopwatch.elapsed;
         notifyListeners();
-      })..start();
-    } else {
-      resume();
-    }
+      }
+    });
+  }
+
+  void start() {
+    if (_ticker == null) return;
+    if (_stopwatch.isRunning) return;
+    _stopwatch.start();
+    _ticker!.start();
+    notifyListeners();
   }
 
   void pause() {
+    if (!_stopwatch.isRunning) return;
     _stopwatch.stop();
-    _ticker?.stop();
     notifyListeners();
   }
 
   void resume() {
     if (_ticker == null) return;
+    if (_stopwatch.isRunning) return;
     _stopwatch.start();
-    _ticker?.start();
+    _ticker!.start();
     notifyListeners();
   }
 
@@ -42,14 +50,15 @@ class WorkoutTimerNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void disposeTicker() {
-    _ticker?.dispose();
-    _ticker = null;
+  void detach() {
+    // Do NOT dispose ticker; we want timer state to survive navigation.
+    _ticker?.stop();
   }
 
   @override
   void dispose() {
-    disposeTicker();
+    _ticker?.dispose();
+    _ticker = null;
     super.dispose();
   }
 }
